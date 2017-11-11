@@ -1,5 +1,7 @@
 {
   "name": "chainer",
+  "author": "Ray Peters",
+  "email": "me@raypeters.com",
   "version": "1.0.0",
   "description": "A generic pipeline featuring value objects and command composition",
   "main": "chainer.js",
@@ -15,7 +17,6 @@
   "keywords": [
     "chaining"
   ],
-  "author": "Ray Peters",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ray-peters/chainer/issues"
