@@ -27,11 +27,13 @@ new Chainer()
   .world()
   .then(console.log);
 // -> 'hello world'
+```
 
-/**
- * @note beware of () => {} in `.then()` handlers!
- * the `function` keyword is important for referencing the correct `this`
- */
+## Gotchas
+Beware of `() => {}` shorthand in `.then()` handlers!
+The `function` keyword is important for referencing the correct `this`. 
+
+```
 new Chainer('hello', { suffix: 'world' })
   .then(function (prefix) {
     return `${prefix} ${this.suffix}`;
