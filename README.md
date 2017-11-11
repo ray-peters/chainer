@@ -4,7 +4,7 @@ A generic pipeline featuring value objects and command composition.
 ## Examples
 
 ### Benefits of a value object
-```
+```javascript
 const valueObjectDemo = new Chainer('hello');
 console.log(`${valueObjectDemo} world`);
 // -> 'hello world'
@@ -15,7 +15,7 @@ new Chainer('hello world')
 ```
 
 ### Add commands to transform subjects
-```
+```javascript
 Chainer.addCommand('hello', () => 'hello');
 Chainer.addCommand('world', subject => `${subject} world`);
 
@@ -36,7 +36,7 @@ Beware of `() => {}` shorthand in `.then()` handlers!
 
 The `function` keyword is important for referencing the correct `this`. 
 
-```
+```javascript
 new Chainer('hello', { suffix: 'world' })
   .then(function (prefix) {
     return `${prefix} ${this.suffix}`;
