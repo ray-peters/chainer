@@ -3,10 +3,8 @@ A generic pipeline featuring value objects and command composition.
 
 ## Examples
 
+### Benefits of a value object
 ```
-console.log('hello world');
-// -> 'hello world'
-
 const valueObjectDemo = new Chainer('hello');
 console.log(`${valueObjectDemo} world`);
 // -> 'hello world'
@@ -14,14 +12,18 @@ console.log(`${valueObjectDemo} world`);
 new Chainer('hello world')
   .then(console.log);
 // -> 'hello world'
+```
 
+### Add commands to transform subjects
+```
+Chainer.addCommand('hello', () => 'hello');
 Chainer.addCommand('world', subject => `${subject} world`);
+
 new Chainer('hello')
   .world()
   .then(console.log);
 // -> 'hello world'
 
-Chainer.addCommand('hello', () => 'hello');
 new Chainer()
   .hello()
   .world()
@@ -29,8 +31,9 @@ new Chainer()
 // -> 'hello world'
 ```
 
-## Gotchas
+### Gotchas
 Beware of `() => {}` shorthand in `.then()` handlers!
+
 The `function` keyword is important for referencing the correct `this`. 
 
 ```
