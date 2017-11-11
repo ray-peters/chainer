@@ -39,7 +39,9 @@ Beware of `() => {}` shorthand in `.then()` handlers!
 The `function` keyword is important for referencing the correct `this`. 
 
 ```javascript
-new Chainer('hello', { suffix: 'world' })
+const context = { suffix: 'world' };
+
+new Chainer('hello', context)
   .then(function (prefix) {
     return `${prefix} ${this.suffix}`;
   })
