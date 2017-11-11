@@ -1,20 +1,22 @@
 # Chainer
 A generic pipeline featuring value objects and command composition.
 
-## Examples
-
-### Benefits of a value object
+## Features
+### It's `.then()`-able
 ```javascript
-const valueObjectDemo = new Chainer('hello');
-console.log(`${valueObjectDemo} world`);
-// -> 'hello world'
-
 new Chainer('hello world')
   .then(console.log);
 // -> 'hello world'
 ```
 
-### Add commands to transform subjects
+### It's a value object
+```javascript
+const valueObjectDemo = new Chainer('hello');
+console.log(`${valueObjectDemo} world`);
+// -> 'hello world'
+```
+
+### It's easy to add commands
 ```javascript
 Chainer.addCommand('hello', () => 'hello');
 Chainer.addCommand('world', subject => `${subject} world`);
@@ -31,7 +33,7 @@ new Chainer()
 // -> 'hello world'
 ```
 
-### Gotchas
+## Gotchas
 Beware of `() => {}` shorthand in `.then()` handlers!
 
 The `function` keyword is important for referencing the correct `this`. 
